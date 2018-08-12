@@ -1,6 +1,5 @@
 package cn.shuyiio.springequinox.beans.factory;
 
-import cn.shuyiio.springequinox.beans.BeanDefinition;
 
 /**
  * @author zhoushuyi
@@ -8,8 +7,6 @@ import cn.shuyiio.springequinox.beans.BeanDefinition;
  */
 public interface BeanFactory {
 
-
-    BeanDefinition getBeanDefinition(String bean);
 
     Object getBean(String beanID);
 

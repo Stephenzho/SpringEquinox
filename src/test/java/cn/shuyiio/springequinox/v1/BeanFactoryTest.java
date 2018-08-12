@@ -1,4 +1,4 @@
-package cn.shuyiio.springequinox;
+package cn.shuyiio.springequinox.v1;
 
 import cn.shuyiio.springequinox.beans.BeanDefinition;
 import cn.shuyiio.springequinox.beans.factory.BeanFactory;
