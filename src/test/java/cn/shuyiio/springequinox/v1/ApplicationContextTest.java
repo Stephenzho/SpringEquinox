@@ -2,6 +2,7 @@ package cn.shuyiio.springequinox.v1;
 
 import cn.shuyiio.springequinox.context.ApplicationContext;
 import cn.shuyiio.springequinox.context.support.ClassPathXmlApplicationContext;
+import cn.shuyiio.springequinox.context.support.FileSystemXmlApplicationContent;
 import cn.shuyiio.springequinox.service.PetPostService;
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,6 +20,19 @@ public class ApplicationContextTest {
         PetPostService postService = (PetPostService) ctx.getBean("petStore");
 
         Assert.assertNotNull(postService);
+    }
+
+
+    @Test
+    public void fileTest() {
+
+        ApplicationContext context = new FileSystemXmlApplicationContent("D:\\Developers\\IdeaProjects\\springequinox\\src\\test\\resources\\petstore.xml");
+
+        PetPostService postService = (PetPostService) context.getBean("petStore");
+
+        Assert.assertNotNull(postService);
 
     }
+
+
 }

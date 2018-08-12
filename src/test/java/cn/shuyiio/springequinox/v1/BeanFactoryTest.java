@@ -4,12 +4,14 @@ import cn.shuyiio.springequinox.beans.BeanDefinition;
 import cn.shuyiio.springequinox.beans.factory.BeanFactory;
 import cn.shuyiio.springequinox.beans.factory.support.DefaultBeanFactory;
 import cn.shuyiio.springequinox.beans.factory.xml.XmlBeanDefinitionReader;
+import cn.shuyiio.springequinox.core.io.ClassPathResource;
 import cn.shuyiio.springequinox.service.PetPostService;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * @author zhoushuyi
@@ -32,11 +34,13 @@ public class BeanFactoryTest {
     @Test
     public void testgetbean() {
 
-        reader.loadBeanDefinitions("petstore.xml");
+        reader.loadBeanDefinitions(new ClassPathResource("petstore.xml"));
 
-        BeanDefinition petStore = beanFactory.getBeanDefinition("petStore");
+        BeanDefinition db = beanFactory.getBeanDefinition("petStore");
 
-        assertEquals("cn.shuyiio.springequinox.service.PetPostService", petStore.getBeanClassName());
+        assertTrue(db.isSingleton());
+
+        assertEquals("cn.shuyiio.springequinox.service.PetPostService", db.getBeanClassName());
 
 
         PetPostService postService = (PetPostService) beanFactory.getBean("petStore");

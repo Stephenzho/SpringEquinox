@@ -4,5 +4,5 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="petStore" class="cn.shuyiio.springequinox.service.PetPostService"/>
+    <bean id="petStore" scope="prototype" class="cn.shuyiio.springequinox.service.PetPostService"/>
 </beans>
