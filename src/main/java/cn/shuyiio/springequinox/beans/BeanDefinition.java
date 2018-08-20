@@ -1,5 +1,7 @@
 package cn.shuyiio.springequinox.beans;
 
+import java.util.List;
+
 /**
  * @author zhoushuyi
  * @since 2018/8/12
@@ -17,4 +19,6 @@ public interface BeanDefinition {
 
     void setScope(String scope);
     String getScope();
+
+    List<PropertyValue> getPropertyValues();
 }

@@ -1,6 +1,6 @@
 package cn.shuyiio.springequinox.context;
 
-import cn.shuyiio.springequinox.beans.config.ConfigurableBeanFactory;
+import cn.shuyiio.springequinox.beans.factory.config.ConfigurableBeanFactory;
 
 /**
  * @author zhoushuyi

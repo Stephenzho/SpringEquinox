@@ -1,6 +1,6 @@
 package cn.shuyiio.springequinox.beans.factory.support;
 
-import cn.shuyiio.springequinox.beans.config.SingletonBeanRegistry;
+import cn.shuyiio.springequinox.beans.factory.config.SingletonBeanRegistry;
 import cn.shuyiio.springequinox.util.Assert;
 
 import java.util.Map;

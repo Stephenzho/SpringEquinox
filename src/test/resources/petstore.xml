@@ -4,5 +4,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="petStore" scope="prototype" class="cn.shuyiio.springequinox.service.PetPostService"/>
+    <bean id="petStore" scope="prototype" class="cn.shuyiio.springequinox.service.v2.PetPostSerivce2">
+        <property name="itemDao" ref="itemDao"/>
+        <property name="accountDao" ref="accountDao"/>
+    </bean>
+
+
+    <bean id="accountDao" class="cn.shuyiio.springequinox.dao.AccountDao"/>
+
+    <bean id="itemDao" class="cn.shuyiio.springequinox.dao.ItemDao"/>
+
+
 </beans>
