@@ -32,6 +32,7 @@ public abstract class AbstractApplicationContext  implements ApplicationContext 
      * @param beanID bean实例的id
      * @return
      */
+    @Override
     public Object getBean(String beanID) {
         return beanFactory.getBean(beanID);
     }
@@ -40,10 +41,12 @@ public abstract class AbstractApplicationContext  implements ApplicationContext 
     public abstract Resource getResource(String path);
 
 
+    @Override
     public void setBeanClassLoader(ClassLoader beanClassLoader) {
         this.classLoader = beanClassLoader;
     }
 
+    @Override
     public ClassLoader getBeanClassLoader() {
         return this.classLoader != null ? this.classLoader : ClassUtils.getDefaultClassLoader();
     }

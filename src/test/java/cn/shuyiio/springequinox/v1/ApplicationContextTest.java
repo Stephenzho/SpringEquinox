@@ -9,17 +9,39 @@ import cn.shuyiio.springequinox.context.ApplicationContext;
 import cn.shuyiio.springequinox.context.support.ClassPathXmlApplicationContext;
 import cn.shuyiio.springequinox.context.support.FileSystemXmlApplicationContent;
 import cn.shuyiio.springequinox.core.io.ClassPathResource;
+import cn.shuyiio.springequinox.dao.AccountDao;
+import cn.shuyiio.springequinox.dao.ItemDao;
 import cn.shuyiio.springequinox.service.PetPostService;
-import org.junit.Assert;
+import cn.shuyiio.springequinox.service.v2.PetPostService2;
 import org.junit.Test;
 
 import java.util.List;
+
+import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * @author zhoushuyi
  * @since 2018/8/12
  */
 public class ApplicationContextTest {
+
+    @Test
+    public void testGetBeanProperty() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("petstore.xml");
+        PetPostService2 petStore = (PetPostService2)ctx.getBean("petStore");
+
+        assertNotNull(petStore.getAccountDao());
+        assertNotNull(petStore.getItemDao());
+
+        assertTrue(petStore.getAccountDao() instanceof AccountDao);
+        assertTrue(petStore.getItemDao() instanceof ItemDao);
+
+        assertEquals("zhoushuyi",petStore.getName());
+        assertEquals(1, petStore.getVersion());
+
+    }
 
 
     @Test
@@ -34,21 +56,21 @@ public class ApplicationContextTest {
 
         List<PropertyValue> pvs = bd.getPropertyValues();
 
-        Assert.assertTrue(pvs.size() == 2);
+        assertTrue(pvs.size() == 4);
         {
             PropertyValue pv = this.getPropertyValue("accountDao", pvs);
 
-            Assert.assertNotNull(pv);
+            assertNotNull(pv);
 
-            Assert.assertTrue(pv.getValue() instanceof RuntimeBeanReference);
+            assertTrue(pv.getValue() instanceof RuntimeBeanReference);
         }
 
         {
             PropertyValue pv = this.getPropertyValue("itemDao", pvs);
 
-            Assert.assertNotNull(pv);
+            assertNotNull(pv);
 
-            Assert.assertTrue(pv.getValue() instanceof RuntimeBeanReference);
+            assertTrue(pv.getValue() instanceof RuntimeBeanReference);
         }
 
     }
@@ -69,7 +91,7 @@ public class ApplicationContextTest {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("petstore.xml");
         PetPostService postService = (PetPostService) ctx.getBean("petStore");
 
-        Assert.assertNotNull(postService);
+        assertNotNull(postService);
     }
 
 
@@ -80,7 +102,7 @@ public class ApplicationContextTest {
 
         PetPostService postService = (PetPostService) context.getBean("petStore");
 
-        Assert.assertNotNull(postService);
+        assertNotNull(postService);
 
     }
 

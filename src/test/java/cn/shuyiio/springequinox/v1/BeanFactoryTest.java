@@ -1,11 +1,10 @@
 package cn.shuyiio.springequinox.v1;
 
 import cn.shuyiio.springequinox.beans.BeanDefinition;
-import cn.shuyiio.springequinox.beans.factory.BeanFactory;
 import cn.shuyiio.springequinox.beans.factory.support.DefaultBeanFactory;
 import cn.shuyiio.springequinox.beans.factory.xml.XmlBeanDefinitionReader;
 import cn.shuyiio.springequinox.core.io.ClassPathResource;
-import cn.shuyiio.springequinox.service.PetPostService;
+import cn.shuyiio.springequinox.service.v2.PetPostService2;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -40,10 +39,10 @@ public class BeanFactoryTest {
 
         assertTrue(db.isSingleton());
 
-        assertEquals("cn.shuyiio.springequinox.service.PetPostService", db.getBeanClassName());
+        assertEquals("cn.shuyiio.springequinox.service.v2.PetPostService2", db.getBeanClassName());
 
 
-        PetPostService postService = (PetPostService) beanFactory.getBean("petStore");
+        PetPostService2 postService = (PetPostService2) beanFactory.getBean("petStore");
 
         assertNotNull(postService);
 

@@ -4,9 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="petStore" scope="prototype" class="cn.shuyiio.springequinox.service.v2.PetPostSerivce2">
+    <bean id="petStore" class="cn.shuyiio.springequinox.service.v2.PetPostService2">
         <property name="itemDao" ref="itemDao"/>
         <property name="accountDao" ref="accountDao"/>
+        <property name="name" value="zhoushuyi"/>
+        <property name="version" value="1"/>
     </bean>
 
 
