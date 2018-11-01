@@ -16,6 +16,13 @@ public class PetPostService2 {
     private int version;
 
 
+    public PetPostService2(AccountDao accountDao, ItemDao itemDao, String name, int version) {
+        this.accountDao = accountDao;
+        this.itemDao = itemDao;
+        this.name = name;
+        this.version = version;
+    }
+
     public int getVersion() {
         return version;
     }

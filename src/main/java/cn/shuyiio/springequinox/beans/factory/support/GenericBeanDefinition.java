@@ -1,6 +1,7 @@
 package cn.shuyiio.springequinox.beans.factory.support;
 
 import cn.shuyiio.springequinox.beans.BeanDefinition;
+import cn.shuyiio.springequinox.beans.ConstructorArgument;
 import cn.shuyiio.springequinox.beans.PropertyValue;
 
 import java.util.ArrayList;
@@ -17,6 +18,8 @@ public class GenericBeanDefinition implements BeanDefinition {
     private boolean singleton = true;
     private boolean prototype = false;
     private String scope = SCOPE_DEFAULT;
+
+    private ConstructorArgument constructorArgument = new ConstructorArgument();
 
     List<PropertyValue> propertyValues = new ArrayList<>();
 
@@ -49,6 +52,11 @@ public class GenericBeanDefinition implements BeanDefinition {
     @Override
     public List<PropertyValue> getPropertyValues() {
         return this.propertyValues;
+    }
+
+    @Override
+    public ConstructorArgument getConstructorArgument() {
+        return constructorArgument;
     }
 
 
